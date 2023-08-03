@@ -2,6 +2,8 @@ package com.atguigu;
 
 import com.atguigu.spring6.User;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
  * Created on @date 2023/8/3
  */
 public class TestUser {
-
+    private Logger logger = LoggerFactory.getLogger(TestUser.class);
     @Test
     public void testUserObject() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
@@ -30,5 +32,10 @@ public class TestUser {
         // 调用方法创建对象
         Object newInstance = aClass.getDeclaredConstructor().newInstance();
 
+    }
+
+    @Test
+    public void testLogger() {
+        logger.info("### 执行调用成功了..");
     }
 }
